@@ -1,0 +1,83 @@
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: justify;
+    padding: 1px;
+}
+
+th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 2px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+h3 {
+    padding-top: 10px;
+    text-align: center;
+    font-family: inherit;
+    position: relative;
+    color: rgb(255, 255, 255);
+}
+
+#divMaior {
+    border-radius: 30px 30px 30px 30px;
+    border-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    margin: auto;
+    max-height: fit-content;
+    clear: both;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+#dLogin {
+    float: right;
+    border-radius: 10px;
+    background-color: rgba(221, 221, 221, 0.616);
+    margin-right: 10px;
+}
+
+#imgLogin {
+    width: 20%;
+    padding-top: 2px;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    float: right;
+}
+
+#divMaior_login {
+    border-radius: 30px 30px 30px 30px;
+    border-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    clear: both;
+    width: 500px;
+}
