@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <title>SIGPRO</title>    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/sigpro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<div class="cabecalho">
+        <a href="/"><img src="/img/logo-branca.png"></a>
+        <div class="cabecalho_log">
+            <a href="/logout"><button class="btn btn-outline-secondary button_sair" style="">SAIR</button></a>
+            <div th:text="'Olá '+ ${logado.nome}"></div>
+        </div>
+    </div>
+	
+	
+	<div class="caixa_ex">
+        <div class="caixa_in">
+        <table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Telefone</th>
+		      <th scope="col">E-mail</th>
+		      <th scope="col">Login</th>
+		      <th scope="col">Função</th>
+		     </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="pessoa : ${todasAsPessoas}">
+		      <td th:text = "${pessoa.id}"></td>
+		      <td th:text = "${pessoa.nome}"></td>
+		      <td th:text = "${pessoa.telefone}"></td>
+		      <td th:text = "${pessoa.email}"></td>
+		      <td th:text = "${pessoa.login}"></td>
+		      <td th:each = "role : ${pessoa.roles}">
+		      	<div th:if = "${role.papel == 'ROLE_USER'}" >DIGITADOR</div>
+		      	<div th:unless = "${role.papel == 'ROLE_USER'}">ADMINISTRADOR</div>
+		      </td>
+		    </tr>
+		    
+		  </tbody>
+		</table>
+			<div style="width: 100%; padding: 5px;">
+				<a href="/"><button class="btn-default" style="float: right">VOLTAR</button></a>    
+	        </div>
+        </div>
+    </div>
+	</body>
+
+</html>

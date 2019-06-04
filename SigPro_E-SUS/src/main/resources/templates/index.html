@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <title>SIGPRO</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/sigpro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+        $( document ).ready(function() {
+            $( "#buttonprof" ).click(function() {
+                $( "#menuprof" ).slideDown( "slow", function() {
+                });
+                $( "#menureg" ).slideUp( "slow", function() {
+                });
+                $( "#menudig" ).slideUp( "slow", function() {
+                });
+            });
+            $( "#buttonreg" ).click(function() {
+                $( "#menureg" ).slideDown( "slow", function() {
+                });
+                $( "#menuprof" ).slideUp( "slow", function() {
+                });
+                $( "#menudig" ).slideUp( "slow", function() {
+                });
+            });
+            $( "#buttondig" ).click(function() {
+                $( "#menudig" ).slideDown( "slow", function() {
+                });
+                $( "#menuprof" ).slideUp( "slow", function() {
+                });
+                $( "#menureg" ).slideUp( "slow", function() {
+                });
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+    
+    <div class="cabecalho">
+        <a href="/"><img src="/img/logo-branca.png"></a>
+        <div class="cabecalho_log">
+            <a href="/logout"><button class="btn btn-outline-secondary button_sair" style="">SAIR</button></a>
+            <div th:text="'Olá '+ ${pessoa.nome}"></div>
+        </div>
+    </div>
+
+    <div class="caixa_ex">
+        <div class="caixa_in">
+            <div>
+                <button id="buttonprof" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                    PROFISSIONAIS
+                    <img style="max-width: 100px; max-height: 100px;"src="img/img-prof.png">
+                </button>
+                <button id="buttonreg"class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                    REGISTROS
+                    <img style="max-width: 100px; max-height: 100px;"src="img/img-reg.png">
+                </button>
+                <button id="buttondig"class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                    DIGITADORES
+                    <img style="max-width: 100px; max-height: 100px;"src="img/img-dig.png">
+                </button>
+            </div>
+            <!-- BUTOES PROFISSIONAIS -->
+            <div id="menuprof" class="caixa_in" style="width: 100%; display: none;">
+                    <a href="/profissional/formprofissional"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        ADICIONAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-prof-add.png">
+                    </button></a>
+                    <a href="/profissional/listarem"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        REMOVER
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-prof-del.png">
+                    </button></a>
+                    <a href="/profissional/listaredt"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        EDITAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-prof-edt.png">
+                    </button></a>
+                    <a href="/profissional/listar"><button class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        LISTAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-prof-list.png">
+                    </button></a>
+            </div>
+            <!-- BUTOES REGISTROS -->
+            <div id="menureg" class="caixa_in" style="width: 100%; display: none;">
+                    <a href="/registro/adicionar"><button class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        ADICIONAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-reg-add.png">
+                    </button></a>
+                    <a href="/registro/remover"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        REMOVER
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-reg-del.png">
+                    </button></a>
+                    <a href="/registro/formrelatorio"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        RELATÓRIO
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-relatorio.png">
+                    </button></a>
+                    <a href="/registro/buscar"><button class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        BUSCAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-reg-list.png">
+                    </button></a>
+            </div>
+            <!-- buttoes digitadores -->
+            <div id="menudig" class="caixa_in" style="width: 100%; display: none;">
+                    <a href="/pessoa/formpessoa"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        ADICIONAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-dig-add.png">
+                    </button></a>
+                    <a href="/pessoa/rempessoas"><button sec:authorize="hasAnyRole('ADMIN')" class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        REMOVER
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-dig-del.png">
+                    </button></a>
+                    <a href="/pessoa/attpessoas"><button sec:authorize="hasAnyRole('ADMIN')"class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        EDITAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-dig-edt.png">
+                    </button></a>
+                    <a href="/pessoa/autoatt"><button sec:authorize="hasAnyRole('USER')"class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        EDITAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-dig-edt.png">
+                    </button></a>
+                    <a href="pessoa/listarpessoas"><button class="btn btn-light" style="width: 150px; float: left; border: 1px solid grey; margin: 5px;">
+                        LISTAR
+                        <img style="max-width: 100px; max-height: 100px;"src="img/img-dig-list.png">
+                    </button></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

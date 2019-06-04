@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <title>SIGPRO</title>    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/sigpro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<div class="cabecalho">
+        <a href="/"><img src="/img/logo-branca.png"></a>
+        <div class="cabecalho_log">
+            <a href="/logout"><button class="btn btn-outline-secondary button_sair" style="">SAIR</button></a>
+            <div th:text="'Olá '+ ${logado.nome}"></div>
+        </div>
+    </div>
+	
+	
+	<div class="caixa_ex">
+        <div class="caixa_in">
+        <table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">CNS</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Equipe</th>
+		     </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td th:text = "${profissional.cns}"></td>
+		      <td th:text = "${profissional.nome}"></td>
+		      <td th:text = "${profissional.equipe}"></td>
+
+		    </tr>
+		    
+		  </tbody>
+		</table>
+		<table class="table">
+		<thead>
+		    <tr>
+		      <th scope="col">DATA FICHA</th>
+		      <th scope="col">REGISTRO</th>
+		      <th scope="col">DATA REGISTRO</th>
+		      <th scope="col">TIPO DE REGISTRO</th>
+		      <th scope="col">ENTREGADOR/RECEBEDOR</th>
+		      <th scope="col">DIGITADOR</th>
+		     </tr>
+		  </thead>
+		   <tbody>
+		    <tr th:each = "ficha : ${todasAsFichas}">
+		      <td th:text = "${ficha.data}"></td>
+		      <td th:text = "${ficha.registro.id}"></td>
+		      <td th:text = "${ficha.registro.data}"></td>
+		      <td th:text = "${ficha.registro.tipo}"></td>
+		      <td th:text = "${ficha.registro.pessoa}"></td>
+		      <td th:text = "${ficha.registro.digitador}"></td>  
+		    </tr>
+		</table>
+			<div style="width: 100%; padding: 5px;">
+				<a href="/profissional/listar"><button class="btn-default" style="float: right">VOLTAR</button></a>    
+	        </div>
+        </div>
+    </div>
+	</body>
+
+</html>

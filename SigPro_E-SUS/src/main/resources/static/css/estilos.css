@@ -1,0 +1,129 @@
+
+body {
+    background-color: #2E6496;
+}
+
+
+
+/*trecho para a pagina de login*/
+#caixa_ex_login {
+    margin-top: 5%;    
+    border-radius: 30px 30px 30px 30px;
+    background-color: rgb(199, 199, 199);
+    clear: both;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+    }
+
+#caixa_in_login {
+    width: 100%;
+    height: 85%; 
+    position: none; 
+    background-color: rgb(255,255,255); 
+    z-index: 1;
+    align-items: center; 
+}
+        
+#caixa_in_login input {
+    font-family: helvetica;
+    width: 60%;
+    margin-left: 20%;
+    clear: both;
+    margin-top: 5%;
+}
+
+#caixa_in_login img {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+
+#caixa_in_login button{
+    margin-top: 10px; 
+    clear: both;
+}
+
+.body_login {
+    background-color: #2E6496;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center   
+
+} 
+
+/*fim trecho do login*/
+
+
+/*tratamento cabeçalho*/
+
+.cabecalho{
+        margin-top: 5%;
+        width: 90%;
+        height: 50px;
+        clear: both;
+        margin-left: 5%;
+    }
+.cabecalho img{
+    float: left;
+    width: auto;
+    height: 100%;
+}
+
+.cabecalho_log{
+    background-color: rgba(221, 221, 221, 0.616);
+    width: 20%;
+    height: 100%;
+    border-radius: 10px;
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+}
+
+.cabecalho_log div{
+    position: absolute;  
+    right: 5px;
+}
+
+.button_sair{
+    padding: 0px 3px 0px 3px; 
+    position: absolute; 
+    bottom: 2px; 
+    right: 5px;
+}
+
+/* FIM tratamento cabeçalho*/
+
+/* tratamento das tabelas centrais */
+.caixa_ex{
+    background-color: rgb(199, 199, 199);
+    border-radius: 10px 10px 10px 10px;
+    width: 90%;
+    height: auto;
+    clear: both;
+    margin-top: 2px;
+    margin-left: 5%;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.caixa_in{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap
+}
+/* tratamento das tabelas centrais */
+

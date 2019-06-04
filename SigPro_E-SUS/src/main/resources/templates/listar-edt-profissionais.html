@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <title>SIGPRO</title>    
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/sigpro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#equipe').change(function(){
+				var nome = $('#equipe').val();
+				$.ajax({
+					type: 'GET',
+					url: '/profissional/listar/'+ nome,
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function(resultado){
+						var s = "";
+						/*<![CDATA[*/
+						for(var i = 0; i < resultado.length; i++){
+							s += "<tr><td>" + resultado[i].cns + "</td>"; 
+							s += "<td>" + resultado[i].nome + "</td>";
+							s += "<td>" + resultado[i].ma + "</td>"
+							s += "<td>" + resultado[i].equipe + "</td>";
+							s += "<td>" + resultado[i].cargo + "</td>";
+							s += "<td><a href='/profissional/editar/" + resultado[i].cns +"'><button class='btn-default'>EDITAR</button></a></td></tr>";
+						}
+						/*]]>*/
+						$('#tabelaprof').html(s)
+					}
+				});
+			});
+		});
+	</script>
+
+
+</head>
+
+<body>
+
+	<div class="cabecalho">
+        <a href="/"><img src="/img/logo-branca.png"></a>
+        <div class="cabecalho_log">
+            <a href="/logout"><button class="btn btn-outline-secondary button_sair" style="">SAIR</button></a>
+            <div th:text="'Olá '+ ${logado.nome}"></div>
+        </div>
+    </div>
+	
+	
+	
+	<div class="caixa_ex">
+        <div class="caixa_in">
+	        <div style="width: 100%;">
+		        <form style="float:left; margin-left: 1px;">
+					<div class="form-row">
+						<div class="form-group col-md-2" >
+							<label>Equipe</label>
+						</div>
+						<div class="form-group col-md-8">
+							<select id="equipe"  class="form-control" >
+								<option value="">Selecione a equipe</option>
+								<option value="Alto_Sao_Francisco">ALTO SAO FRANCISCO</option>
+			                    <option value="California">CALIFORNIA</option>
+			                    <option value="Campo_Novo_I">CAMPO NOVO I</option>
+			                    <option value="Campo_Novo_II">CAMPO NOVO II</option>
+			                    <option value="Campo_Velho_I">CAMPO VELHO I</option>
+			                    <option value="Campo_Velho_II">CAMPO VELHO II</option>
+			                    <option value="Centro_I">CENTRO I</option>
+			                    <option value="Centro_II">CENTRO II</option>
+			                    <option value="Cipo_dos_Anjos">CIPO DOS ANJOS</option>
+			                    <option value="Combate_I">COMBATE I</option>
+			                    <option value="Combate_II">COMBATE II</option>
+			                    <option value="Custódio">CUSTODIO</option>
+			                    <option value="Dom_Maurício">DOM MAURICIO</option>
+			                    <option value="Jatobá">JATOBA</option>
+			                    <option value="Jua">JUA</option>
+			                    <option value="Juatama">JUATAMA</option>
+			                    <option value="Riacho_Verde">RIACHO VERDE</option>
+			                    <option value="São_João_I">SAO JOAO I</option>
+			                    <option value="São_João_II">SAO JOAO II</option>
+			                    <option value="São_João_do_Queiroz">SAO JOAO DOS QUEIROZ</option>
+			                    <option value="Varzea_da_Onça">VARZEA DA ONÇA</option>
+			                    <option value="Tapuiará">TAPUIARA</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+        <table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">CNS</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Micro Área</th>
+		      <th scope="col">Equipe</th>
+		      <th scope="col">Cargo</th>
+		      <th scope="col">Editar Profissional</th>
+		     </tr>
+		  </thead>
+		  <tbody id="tabelaprof">
+		    
+		  </tbody>
+		</table>
+			<div style="width: 100%; padding: 5px;">
+				<a href="/"><button class="btn-default" style="float: right">VOLTAR</button></a>    
+	        </div>
+        </div>
+    </div>
+	</body>
+
+</html>
